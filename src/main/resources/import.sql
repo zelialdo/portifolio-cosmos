@@ -1,0 +1,2 @@
+INSERT INTO projetos (ano_de_realizacao, equipe, instituicao, link_externo, mentor, resumo, tematica) VALUES ('2021', 'joão, maria, ze, julia', 'Cesar', 'https://www.google.com', 'Gusta', 'projeto sobre tratamento de auga, esgoto, rios', 'Como limpar as águas');
+INSERT INTO projetos (ano_de_realizacao, equipe, instituicao, link_externo, mentor, resumo, tematica) VALUES ('2020', 'José, Luiza, Pedro, jão', 'Nassau', 'https://www.google.com', 'Tiberius', 'projeto sobre Jogos eletronicos e os seus impactos nos jovens e velhos também', 'Jogos de Azar');

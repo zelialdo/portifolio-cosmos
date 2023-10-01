@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "projetos_cadastrados")
+@Table(name = "projetos")
 public class Projeto {
 
     @EqualsAndHashCode.Include
@@ -26,17 +26,13 @@ public class Projeto {
 
     @Column(name = "tematica")
     private String tema;
-
     private String equipe;
 
+    @Column(columnDefinition = "TEXT")
     private String resumo;
-
     private String instituicao;
-
     private String mentor;
-
     private String anoDeRealizacao;
-
     private String linkExterno;
 
 }

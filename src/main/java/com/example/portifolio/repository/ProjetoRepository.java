@@ -1,4 +1,4 @@
-package com.example.portifolio.domain.repository;
+package com.example.portifolio.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

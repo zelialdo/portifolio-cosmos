@@ -16,23 +16,23 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "projetos")
-public class Projeto {
+@Table(name = "producoes")
+public class Producao {
 
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "tematica")
-    private String tema;
-    private String equipe;
+    private String nome;
+    private int ano;
 
     @Column(columnDefinition = "TEXT")
-    private String resumo;
+    private String descricao;
+    private String tipoProducao;
+    private String tag;
+    private String objetivo;
+    private String docente;
     private String instituicao;
-    private String mentor;
-    private String anoDeRealizacao;
-    private String linkExterno;
+    private String link;
 
 }

@@ -49,21 +49,27 @@ public class ProducaoService {
         for (Field field : fields) {
             field.setAccessible(true);
 
-            // Exclui a validação do campo 'id'
             if (field.getName().equals("id")) {
                 continue;
             }
 
-            // Verifica se o campo não é do tipo String e está nulo
             if (!field.getType().equals(String.class)) {
                 try {
                     if (field.get(producao) == null) {
                         throw new IllegalArgumentException("O campo '" + field.getName() + "' é obrigatório.");
                     }
                 } catch (IllegalAccessException e) {
-                    e.printStackTrace(); // Lidar com exceção conforme necessário
+                    e.printStackTrace();
                 }
             }
         }
+    }
+
+    public boolean existsById(Long id) {
+        return producaoRepository.existsById(id);
+    }
+
+    public void deleteById(Long id) {
+        producaoRepository.deleteById(id);
     }
 }

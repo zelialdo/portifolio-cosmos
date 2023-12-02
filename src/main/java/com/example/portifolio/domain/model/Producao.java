@@ -23,16 +23,12 @@ public class Producao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
+    private String titulo;
     private int ano;
 
     @Column(columnDefinition = "TEXT")
     private String descricao;
-    private String tipoProducao;
-    private String tag;
-    private String objetivo;
-    private String docente;
+    private TagEnum tagEnum;
     private String instituicao;
     private String link;
-
 }

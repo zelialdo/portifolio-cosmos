@@ -17,6 +17,7 @@ public class ProducaoService {
 
     @Autowired
     private ProducaoRepository producaoRepository;
+    public Producao reregistrarProducanull;
 
     public ProducaoService(ProducaoRepository producaoRepository) {
         this.producaoRepository = producaoRepository;
@@ -37,6 +38,11 @@ public class ProducaoService {
         return dto;
     }
 
+    public Producao BuscarPorId(Long id) {
+        Producao result = producaoRepository.findById(id).get();
+        return result;
+    }
+
     public Producao registrarProducao(Producao producao) {
         validarCamposObrigatorios(producao);
         return producaoRepository.save(producao);
@@ -53,7 +59,7 @@ public class ProducaoService {
                 continue;
             }
 
-            if (!field.getType().equals(String.class)) {
+            if (!field.getType().equals(String.class) && !field.getType().isPrimitive()) {
                 try {
                     if (field.get(producao) == null) {
                         throw new IllegalArgumentException("O campo '" + field.getName() + "' é obrigatório.");
@@ -62,6 +68,7 @@ public class ProducaoService {
                     e.printStackTrace();
                 }
             }
+            
         }
     }
 
@@ -71,5 +78,10 @@ public class ProducaoService {
 
     public void deleteById(Long id) {
         producaoRepository.deleteById(id);
+    }
+
+    public Producao salvarAlteracao(Producao producao) {
+        validarCamposObrigatorios(producao);
+        return producaoRepository.save(producao);
     }
 }

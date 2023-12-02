@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.portifolio.domain.dto.ProducaoDto;
 import com.example.portifolio.domain.dto.ProducaoMinDto;
 import com.example.portifolio.domain.model.Producao;
-import com.example.portifolio.repository.ProducaoRepository;
 import com.example.portifolio.services.ProducaoService;
 
 @RestController
@@ -25,9 +25,8 @@ public class ProducaoController {
 
     @Autowired
     private ProducaoService producaoService;
-    private ProducaoRepository producaoRepository;
 
-    @GetMapping
+    @GetMapping(value = "/card")
     public List<ProducaoMinDto> findAll() {
         List<ProducaoMinDto> result = producaoService.findAll();
         return result;
@@ -62,4 +61,23 @@ public class ProducaoController {
         producaoService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Producao> editarProducao(@PathVariable Long id, @RequestBody Producao producao){
+        Producao producaoExistente = producaoService.BuscarPorId(id);
+        if (producaoExistente == null){
+            return ResponseEntity.notFound().build();
+        }
+
+        producaoExistente.setTitulo(producao.getTitulo());
+        producaoExistente.setAno(producao.getAno());
+        producaoExistente.setDescricao(producao.getDescricao());
+        producaoExistente.setInstituicao(producao.getInstituicao());
+        producaoExistente.setLink(producao.getLink());
+
+        Producao producaoAtualizada = producaoService.salvarAlteracao(producaoExistente);
+
+        return ResponseEntity.ok(producaoAtualizada);
+    }
 }
+    

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.portifolio.domain.dto.ProducaoDto;
 import com.example.portifolio.domain.dto.ProducaoMinDto;
 import com.example.portifolio.domain.model.Producao;
+import com.example.portifolio.domain.model.TagEnum;
 import com.example.portifolio.repository.ProducaoRepository;
 
 @Service
@@ -83,5 +84,10 @@ public class ProducaoService {
     public Producao salvarAlteracao(Producao producao) {
         validarCamposObrigatorios(producao);
         return producaoRepository.save(producao);
+    }
+
+
+    public List<Producao> findByTagEnum(TagEnum tagEnum) {
+        return producaoRepository.findByTagEnum(tagEnum);
     }
 }

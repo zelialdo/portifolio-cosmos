@@ -5,7 +5,6 @@ import org.springframework.beans.BeanUtils;
 import com.example.portifolio.domain.model.Producao;
 import com.example.portifolio.domain.model.TagEnum;
 
-import jakarta.persistence.Entity;
 
 public class ProducaoDto {
 

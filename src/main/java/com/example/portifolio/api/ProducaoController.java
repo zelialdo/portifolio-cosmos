@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.portifolio.domain.dto.ProducaoDto;
 import com.example.portifolio.domain.dto.ProducaoMinDto;
 import com.example.portifolio.domain.model.Producao;
+import com.example.portifolio.domain.model.TagEnum;
 import com.example.portifolio.services.ProducaoService;
 
 @RestController
@@ -36,6 +38,12 @@ public class ProducaoController {
     public ProducaoDto findById(@PathVariable Long id) {
         ProducaoDto result = producaoService.findById(id);
         return result;
+    }
+
+    @GetMapping("/tag")
+    public ResponseEntity<List<Producao>> buscarPorTagEnum(@RequestParam TagEnum tagEnum) {
+        List<Producao> producoes = producaoService.findByTagEnum(tagEnum);
+        return ResponseEntity.ok(producoes);
     }
 
     public ProducaoController(ProducaoService producaoService) {

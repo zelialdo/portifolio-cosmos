@@ -3,6 +3,7 @@ package com.example.portifolio.domain.dto;
 import org.springframework.beans.BeanUtils;
 
 import com.example.portifolio.domain.model.Producao;
+import com.example.portifolio.domain.model.TagEnum;
 
 import jakarta.persistence.Entity;
 
@@ -11,7 +12,16 @@ public class ProducaoDto {
     private Long id;
     private String titulo;
     private int ano;
+    private TagEnum tagEnum;
     private String descricao;
+
+    public TagEnum getTagEnum() {
+        return this.tagEnum;
+    }
+
+    public void setTagEnum(TagEnum tagEnum) {
+        this.tagEnum = tagEnum;
+    }
     private String instituicao;
     private String link;
 

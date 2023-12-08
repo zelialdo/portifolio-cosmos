@@ -24,7 +24,7 @@
 
 | Endpoint                          | Método        | Como configurar o Postman?                                                                                    | Descrição                             |
 | --------------------------------- |:-------------:|---------------------------------------------------------------------------------------------------------------|---------------------------------------|
-| *localhost:8080/producoes/card*   | [GET]         | Somente cliclar no botão 'SEND'.                                                                              | Lista de projetos em forma de cards.  |
+| *localhost:8080/producoes/card*   | [GET]         | Somente clicar no botão 'SEND'.                                                                               | Lista de projetos em forma de cards.  |
 | *localhost:8080/producoes*        | [POST]        | Inserir um Objeto JSON no campo Body.                                                                         | Cadastrar uma produção.               |
 | *localhost:8080/producoes{id}*    | [PUT]         | Inserir um Objeto JSON no campo Body.                                                                         | Atualizar uma produção por id.        |
 | *localhost:8080/producoes{id}*    | [DELETE]      | Setar o valor do id na URL do endpoint.                                                                       | Deletar uma produção por id.          |
